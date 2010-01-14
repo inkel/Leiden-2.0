@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
+  helper_method :logged_in?
+
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
 
@@ -18,7 +20,11 @@ class ApplicationController < ActionController::Base
 
   def authenticate
     authenticate_or_request_with_http_basic(HTTP_REALM) do |username, password|
-      HTTP_USER == username && HTTP_PASS == password
+      session[:authenticated] = HTTP_USER == username && HTTP_PASS == password
     end
+  end
+
+  def logged_in?
+    session[:authenticated] == true
   end
 end
