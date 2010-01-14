@@ -1,3 +1,8 @@
 - title 'Leiden 2.0', true
 
-%p Diario de viajes de mi segundo viaje a Leiden, Holanda.
+%p O el diario de viajes de mi segunda aventura en Leiden, Holanda.
+
+- if @post
+  = render :partial => 'posts/post', :object => @post
+
+%p.center= link_to "Ver todas las entradas", posts_path
