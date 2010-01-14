@@ -2,7 +2,7 @@
   %h2
     %span.publish-date{:title => post.published.to_s(:long) }
       %span.day= h post.published.strftime('%d')
-      %span.month= h post.published.strftime('%b')
+      %span.month= h l(post.published, :format => '%b')
     = link_to post.title, post
 
   .body= post.content
