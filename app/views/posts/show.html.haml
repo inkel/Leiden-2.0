@@ -1,0 +1,5 @@
+- title @post.title, false
+
+= render :partial => 'post', :object => @post
+
+%p= link_to "View All", posts_path
