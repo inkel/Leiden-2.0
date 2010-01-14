@@ -6,3 +6,14 @@
   = render :partial => 'posts/post', :object => @post
 
 %p.center= link_to "Ver todas las entradas", posts_path
+
+#clima
+  %h2 El clima
+  %p
+    Este es el clima actual.
+    %em Vandaag
+    es el clima de hoy,
+    %em Morgen
+    es el clima de mañana.
+  %div{:style => "text-align:center;width:355px;height:300px;margin:auto auto"}
+    %iframe{:frameborder => "0", :scrolling => "no", :src => "http://www.weeronline.nl/Go/ExternalWidgets/Weather?settings=ARXrPQA%3D", :style => "border: 0pt none ; margin: 0pt; padding: 0pt; overflow: hidden; width: 355px; height: 290px;"}
