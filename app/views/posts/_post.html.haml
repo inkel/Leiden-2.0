@@ -1,0 +1,13 @@
+.post{ :class => post.draft && 'draft' || 'post' }
+  %h2
+    %span.publish-date{:title => post.published.to_s(:long) }
+      %span.day= h post.published.strftime('%d')
+      %span.month= h post.published.strftime('%b')
+    = link_to post.title, post
+
+  .body= post.content
+
+  - if logged_in?
+    .admin
+      = link_to 'Edit', edit_post_path(post)
+      = link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete
