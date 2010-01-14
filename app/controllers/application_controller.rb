@@ -7,17 +7,4 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
-
-  # HTTP Authentication parameters
-  HTTP_REALM = ENV['HTTP_REALM'] || 'Leiden 2.0 backend'
-  HTTP_USER  = ENV['HTTP_USER'] || 'admin'
-  HTTP_PASS  = ENV['HTTP_PASS'] || 'admin'
-
-  protected
-
-  def authenticate
-    authenticate_or_request_with_http_basic(HTTP_REALM) do |user, password|
-      HTTP_USER == user && HTTP_PASS == password
-    end
-  end
 end
