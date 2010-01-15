@@ -1,8 +1,11 @@
-- title "Posts"
+- title "Mis andanzas"
+
+- if logged_in?
+  %p= link_to "Nueva", new_post_path
 
 .posts
 - @posts.each do |post|
   = render :partial => 'post', :object => post
 
 - if logged_in?
-  %p= link_to "New Post", new_post_path
+  %p= link_to "Nueva", new_post_path
