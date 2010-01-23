@@ -7,6 +7,7 @@
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
     = stylesheet_link_tag 'application'
     = yield(:head)
+    = auto_discovery_link_tag :atom, atom_path, :title => 'Mis andanzas'
   
   %body
     #container

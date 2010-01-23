@@ -1,6 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :posts
 
+  map.atom 'atom', :controller => 'posts', :action => 'feed', :format => 'atom'
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

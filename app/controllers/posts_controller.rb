@@ -1,8 +1,16 @@
 class PostsController < ApplicationController
-  before_filter :authenticate, :except => [ :index, :show ]
+  before_filter :authenticate, :except => [ :index, :show, :feed ]
 
   def index
     @posts = Post.all(:order => 'created_at DESC, updated_at DESC')
+  end
+
+  def feed
+    @posts = Post.all(:order => 'created_at DESC, updated_at DESC')
+
+    respond_to do |format|
+      format.atom
+    end
   end
 
   def show
