@@ -15,7 +15,6 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    fresh_when :etag => @post, :last_modified => @post.updated_at.utc
   end
 
   def new
