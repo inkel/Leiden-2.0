@@ -1,3 +1,6 @@
+- content_for :head do
+  = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"
+
 - form_for @post do |f|
   = f.error_messages
   %p
@@ -18,3 +21,8 @@
     = f.text_area :content, :style => "width: 100%", :rows => 15
   %p
     = f.submit "Submit"
+    = button_to_function "Preview", "jQuery('#preview .post .body').html(jQuery('#post_content').val())"
+
+#preview
+  .post
+    .body
