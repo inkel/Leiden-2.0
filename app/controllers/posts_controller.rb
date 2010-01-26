@@ -1,12 +1,13 @@
 class PostsController < ApplicationController
   before_filter :authenticate, :except => [ :index, :show, :feed ]
+  before_filter :find_post, :except => [ :index, :feed, :new, :create ]
 
   def index
-    @posts = Post.all(:order => 'created_at DESC, updated_at DESC')
+    @posts = Post.list
   end
 
   def feed
-    @posts = Post.all(:order => 'created_at DESC, updated_at DESC')
+    @posts = Post.list
 
     respond_to do |format|
       format.atom
@@ -14,7 +15,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
   end
 
   def new
@@ -32,11 +32,9 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
     if @post.update_attributes(params[:post])
       flash[:notice] = "Successfully updated post."
       redirect_to @post
@@ -46,9 +44,14 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
     flash[:notice] = "Successfully destroyed post."
     redirect_to posts_url
+  end
+
+  protected
+
+  def find_post
+    @post = Post.find(params[:id])
   end
 end
