@@ -9,6 +9,7 @@
     = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"
     = yield(:head)
     = auto_discovery_link_tag :atom, atom_path, :title => 'Mis andanzas'
+    %link{ :type => 'text/html', :rel => 'me', :href => 'http://www.google.com/profiles/inkel.ar' }
   
   %body
     #container
