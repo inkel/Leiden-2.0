@@ -7,5 +7,8 @@
 - @posts.each do |post|
   = render :partial => 'post', :object => post
 
+%nav
+  = will_paginate @posts, :previous_label => 'Anterior', :next_label => 'Siguiente'
+
 - if logged_in?
   %p= link_to "Nueva", new_post_path

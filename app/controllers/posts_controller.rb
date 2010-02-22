@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_filter :find_post, :except => [ :index, :feed, :new, :create ]
 
   def index
-    @posts = Post.list
+    @posts = Post.list.paginate :page => params[:page], :per_page => 10
   end
 
   def feed
