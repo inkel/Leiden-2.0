@@ -1,9 +1,11 @@
-- title "Mis andanzas"
+- title "Mis andanzas", false
 
 - if logged_in?
   %p= link_to "Nueva", new_post_path
 
 %section.posts
+  %header
+    %h1 Mis andanzas
   - @posts.each do |post|
     = render :partial => 'post', :object => post
 

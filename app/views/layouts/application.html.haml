@@ -11,6 +11,8 @@
     = yield(:head)
     = auto_discovery_link_tag :atom, atom_path, :title => 'Mis andanzas'
     %link{ :type => 'text/html', :rel => 'me', :href => 'http://www.google.com/profiles/inkel.ar' }
+    <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
   
   %body
     %section#container
