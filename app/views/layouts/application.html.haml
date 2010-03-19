@@ -22,7 +22,7 @@
       
       = yield
 
-    - if not logged_in?
+    - if not logged_in? and 'leiden.inkel.com.ar' == request.host
       :javascript
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-6935564-2']);
